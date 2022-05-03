@@ -74,4 +74,5 @@ Foi entregue um banco de dados Limpo para que o usuário consiga cadastrar as in
 
 
 ### Byebye! Obrigada!
-<iframe src="https://giphy.com/embed/m9eG1qVjvN56H0MXt8" width="295" height="480" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/baby-bye-slide-m9eG1qVjvN56H0MXt8">via GIPHY</a></p>
+
+![](https://media.giphy.com/media/m9eG1qVjvN56H0MXt8/giphy.gif)
