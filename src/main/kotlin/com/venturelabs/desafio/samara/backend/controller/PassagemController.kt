@@ -3,6 +3,7 @@ package com.venturelabs.desafio.samara.backend.controller
 
 import com.venturelabs.desafio.samara.backend.model.HTTPResponse
 import com.venturelabs.desafio.samara.backend.model.Passagem
+import com.venturelabs.desafio.samara.backend.model.PassagemDetalhe
 import com.venturelabs.desafio.samara.backend.model.PassagemRequest
 import com.venturelabs.desafio.samara.backend.service.PassagemService
 import org.springframework.http.HttpStatus
@@ -35,12 +36,12 @@ class PassagemController(private val passagemService: PassagemService) {
         return passagemService.listarComprasCliente(idCliente)
     }
     @GetMapping("/listarByVoo/{idVoo}")
-    fun listarPassagensPorVoo(@PathVariable idVoo: String): List<Passagem>{
+    fun listarPassagensPorVoo(@PathVariable("idVoo") idVoo: String): List<Passagem>{
         return passagemService.listarPassagensPorVoo(idVoo)
     }
 
     @GetMapping("/detalhesPassagem/{idPassagem}")
-    fun detalhesPassagemAerea(idPassagem: String): Optional<Passagem> {
+    fun detalhesPassagemAerea(@PathVariable("idPassagem") idPassagem: String): PassagemDetalhe {
         return passagemService.detalhesPassagemAerea(idPassagem)
     }
 }

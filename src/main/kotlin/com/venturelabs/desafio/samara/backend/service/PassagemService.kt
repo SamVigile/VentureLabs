@@ -1,9 +1,6 @@
 package com.venturelabs.desafio.samara.backend.service
 
-import com.venturelabs.desafio.samara.backend.model.Assento
-import com.venturelabs.desafio.samara.backend.model.HTTPResponse
-import com.venturelabs.desafio.samara.backend.model.Passagem
-import com.venturelabs.desafio.samara.backend.model.PassagemRequest
+import com.venturelabs.desafio.samara.backend.model.*
 import com.venturelabs.desafio.samara.backend.repository.AssentoRepository
 import com.venturelabs.desafio.samara.backend.repository.ClienteRepository
 import com.venturelabs.desafio.samara.backend.repository.PassagemRepository
@@ -85,12 +82,15 @@ class PassagemService(private val passagemRepository: PassagemRepository,
     }
 
 
-    fun detalhesPassagemAerea(idPassagem: String): Optional<Passagem> {
-        var passagem = passagemRepository.findById(idPassagem.toLong());
+    fun detalhesPassagemAerea(idPassagem: String): PassagemDetalhe {
+            var passagem = passagemRepository.findById(idPassagem.toLong());
         if (!passagem.isPresent) {
             throw TypeNotPresentException("Passagem nao encontrada", null)
         }
-        return passagem;
+        var voo = vooRepository.findById(passagem.get().vooID.toLong())
+        var passagemDetalhe = PassagemDetalhe(passagem.get(), voo.get())
+
+        return passagemDetalhe;
 
 }
 

@@ -7,5 +7,6 @@ import java.util.*
 
 @Repository
 interface VooRepository: CrudRepository<Voo, Long> {
-    abstract fun findById(vooID: Int): Optional<Voo>
+//    abstract fun findById(vooID: Int): Optional<Voo>
+
 }
